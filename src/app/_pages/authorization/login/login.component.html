@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+  <div style="display: flex; justify-content: center;">
+    <p style="font-size: 30px; font-weight: bold;">INICIO SESIÓN</p>
+  </div>
+  <mat-form-field appearance="legacy">
+    <mat-label>Usuario</mat-label>
+    <input matInput placeholder="" [(ngModel)]="usuario">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Contraseña</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-button color="warn"  (click)="inicialice()">INGRESAR</button>
+</mat-card>

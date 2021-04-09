@@ -1,0 +1,121 @@
+
+<div fxLayoutGap="10px" style="display: flex; justify-content: center;  width: 100%; height: 100%;">
+
+ <div style="display: flex; flex-direction: column; width: 50%; position: relative; top:20px">
+  <div >
+    <div style="display: flex; justify-content: center;">
+      <p style="font-size: 30px; font-weight: bold;">MENÚ</p>
+    </div>
+  </div>
+
+  <div fxFlex style=" width: 100%;">
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile *ngFor="let dish of dishes">
+        <img height="200px" src={{dish.image}} alt={{dish.name}}>
+        <mat-grid-tile-footer (click)="agregarCarrito(dish)">
+          <div style="display: flex;justify-content: space-between; width: 100%;">
+            <div>
+              {{dish.dishName}}
+            </div>
+            <div>
+              S/.{{dish.price}}
+            </div>
+          </div>
+        </mat-grid-tile-footer>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+ </div>
+
+  <mat-card class="example-card">
+    <div>
+      <mat-card-header>
+        <mat-card-title>Nueva Orden</mat-card-title>
+        <mat-card-subtitle>Rellene los siguientes datos</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Número de contacto</mat-label>
+            <input matInput placeholder="contacto" [(ngModel)]="contactNumber">
+
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Tipo de pago</mat-label>
+            <mat-select [(ngModel)]="selectedPayForm">
+              <mat-option *ngFor="let pay of pays" [value]="pay">
+                {{pay}}
+              </mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" >
+            <mat-label>Número de tarjeta</mat-label>
+            <input matInput placeholder="tarjeta" [(ngModel)]="cardNumber" [disabled]="selectedPayForm==='efectivo'">
+
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Desea bebida</mat-label>
+            <mat-select [(ngModel)]="optionDrinkSelected">
+              <mat-option *ngFor="let option of bebida" [value]="option.valor">
+                {{option.clave}}
+              </mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Presenta cupón de descuento</mat-label>
+            <mat-select [(ngModel)]="optionCuponSelected">
+              <mat-option *ngFor="let option of cupon" [value]="option.valor">
+                {{option.clave}}
+              </mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Descuento a aplicar</mat-label>
+            <input matInput placeholder="descuento" [(ngModel)]="discount" [disabled]="!optionCuponSelected">
+
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+
+    </div>
+
+    <mat-selection-list style="height: 500px;
+    position: relative;
+    width: 70%;
+    left: 30%;
+    bottom: 57%;" #x>
+      <mat-list-option *ngFor="let selectedDish of selectedDishes">
+        <div style="display: flex;justify-content: space-between;">
+          <div>
+            {{selectedDish.dishName}}
+          </div>
+          <div>
+            {{selectedDish.quantity}}
+          </div>
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+    <mat-card-actions style="display: flex; position: relative;
+    justify-content: space-between;
+    bottom: 300px;">
+      <p>total : {{order.getTotal()}}</p>
+      <button mat-button  (click)="inicialice()">ENVIAR PEDIDO</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
