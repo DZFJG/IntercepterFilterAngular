@@ -15,9 +15,18 @@ export class FilterChain{
   }
 
   public execute(request: Order): void{
+    /*
     this.filters.forEach(filter=>{
-      filter.execute(request);
-    })
+      if(!filter.execute(request)){
+        return;
+      }
+    })*/
+
+    for(let filter of this.filters){
+      if(!filter.execute(request)){
+        return;
+      }
+    }
 
     this.target.execute(request);
   }

@@ -10,11 +10,12 @@ export class ContactFilterService implements Filter{
   constructor() { }
 
   public execute(request: Order): boolean{
-    console.log("entró al filtro de contacto");
-    if(request.getContactNumber().length===9 || request.getContactNumber().length===6){
+    if(request.getContactNumber().length===9 || request.getContactNumber().length===7){
       localStorage.setItem("contacto",  request.getContactNumber());
-      console.log("registrando contacto " + JSON.stringify(request));
+      console.log("registrando contacto ");
+    }else{
+      console.log("error al registrar contacto");
     }
-    return (request.getContactNumber().length===9 || request.getContactNumber().length===6);
+    return (request.getContactNumber().length===9 || request.getContactNumber().length===7);
   }
 }

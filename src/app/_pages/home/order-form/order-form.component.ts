@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { timeStamp } from 'node:console';
 import { Client } from 'src/app/Client/Client';
 import { FilterManager } from 'src/app/Filter/FilterManager';
 import { Target } from 'src/app/Filter/Target';
@@ -33,8 +32,8 @@ export class OrderFormComponent implements OnInit {
 
   pays: any[] = ["efectivo", "tarjeta"];
   selectedPayForm: string;
-  cardNumber: string;
-  contactNumber: string;
+  cardNumber: string = "";
+  contactNumber: string = "";
 
   selectedDishes: Array<any> = new Array<any>();
 

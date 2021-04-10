@@ -19,6 +19,6 @@ export class DrinkFormFilterService implements Filter {
       console.log("no lleva bebida");
       tieneBebida = false;
     }
-    return tieneBebida;
+    return true;
   }
 }

@@ -8,6 +8,5 @@ export class Target{
 
   public execute(request: Order): void{
     console.log("leyendo: " + JSON.stringify(request));
-
   }
 }

@@ -12,8 +12,10 @@ export class AuthFilterService implements Filter{
 
   public execute(request: Order): boolean{
     if(request.getName()=="felipe" && request.getPassword()=="123"){
-      console.log("autenticando " + JSON.stringify(request));
+      console.log("autenticando ");
       this.router.navigate(['/order/form']);
+    }else{
+      console.log("el usuario y la contraseña son incorrectos");
     }
     return (request.getName()=="felipe" && request.getPassword()=="123");
   }

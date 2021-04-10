@@ -15,7 +15,7 @@ export class PayFormFilterService implements Filter{
       if(request.getCardNumber().length!==0){
         request.setTotal(request.getTotal() + 5.00);
         localStorage.setItem("tipo de pago", request.getTotal().toString());
-        console.log("registrando tipo de pago por tarjeta" + JSON.stringify(request));
+        console.log("registrando tipo de pago por tarjeta");
         isPayForm = true;
       }else{
         console.log("falta numero de tarjeta");
@@ -24,7 +24,7 @@ export class PayFormFilterService implements Filter{
     }else if(request.getPayForm() === "efectivo"){
       request.setTotal(request.getTotal());
       localStorage.setItem("tipo de pago", request.getTotal().toString());
-      console.log("registrando tipo de pago por efectivo" + JSON.stringify(request));
+      console.log("registrando tipo de pago por efectivo");
       isPayForm = true;
     }
     return isPayForm;
