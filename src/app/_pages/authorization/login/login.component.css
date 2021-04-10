@@ -11,14 +11,46 @@
     height: 50%;
     width: 25%;
 }
-
-@media screen and (max-width:800px) {
+@media screen and (max-width:1900px) {
   .example-card {
   
        padding: 2%;
        margin-top: 5%;
+       margin-left: 35%;
+       height: 50%;
+       width: 30%;
+   }
+   
+}
+@media screen and (max-width:1500px) {
+  .example-card {
+  
+       padding: 2%;
+       margin-top: 30%;
        margin-left: 25%;
-       height: 60%;
+       height: 40%;
+       width: 50%;
+   }
+   
+}
+@media screen and (max-width:1000px) {
+  .example-card {
+  
+       padding: 2%;
+       margin-top: 20%;
+       margin-left: 25%;
+       height: 30%;
+       width: 50%;
+   }
+   
+}
+@media screen and (max-width:800px) {
+  .example-card {
+  
+       padding: 2%;
+       margin-top: 20%;
+       margin-left: 25%;
+       height: 30%;
        width: 50%;
    }
    
@@ -27,9 +59,9 @@
   .example-card {
  
        padding: 2%;
-       margin-top: 5%;
+       margin-top: 25%;
        margin-left: 15%;
-       height: 60%;
+       height: 30%;
        width: 70%;
    }
    
